@@ -112,7 +112,6 @@ const userSchema = new mongoose.Schema({
 },{timestamps:true})//timestamp:true gives 2 fields more created at and updated at
 
 
-const User = mongoose.model("User" ,userSchema)
+const User = mongoose.model("User" ,userSchema)//creating model 
 
 export default User
-
