@@ -27,7 +27,7 @@ const STEPS = [
     desc: "Copy one script tag and add it to your website.",
   },
 ];
-
+//relative means parent and absoulute items are positioned according to parent or relative
 function Home({ user }) {
   const navigate = useNavigate()
   return (
