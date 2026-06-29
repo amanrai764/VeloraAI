@@ -1,27 +1,26 @@
-//controller like working fan and route like"/" is button of fan 
 import { genToken } from "../Configs/token.js"
 import User from "../Models/user.model.js"
 
 
 
-export const googleAuth = async (req,res) => {//async arrow googleAuth function for authentiction
+export const googleAuth = async (req,res) => {
     try {
         const {name , email} = req.body
-        if(!name || !email) {//agar name ya email kuchh na mila this is frontend error //frontend error-400-500,server error:500-600,status ok:200-300
+        if(!name || !email) {
             return res.status(400).json({message:"Name and Email are required"})
         }
-        let user = await User.findOne({email})//agar name and email mil gaya hai no need to signup again
+        let user = await User.findOne({email})
         if(!user){
             user = await User.create({
                 name , email
             })
         }
-        const token = await genToken(user._id)//if user find than we need a token and store into cookies and we need user_id to generate token
+        const token = await genToken(user._id)
         res.cookie("token" , token , {
             httpOnly:true,
             secure:false,
             sameSite:"strict",
-            maxAge: 7 * 24 * 60 * 60 * 1000//means  agle 7 din tak login karne ki jaroorat nahi hai ab 1000 for ms
+            maxAge: 7 * 24 * 60 * 60 * 1000
         } )
 
         return res.status(200).json(user)
@@ -33,7 +32,7 @@ export const googleAuth = async (req,res) => {//async arrow googleAuth function 
 
 export const logOut = async (req,res) => {
     try {
-        await res.clearCookie("token" , {//at logout clear the cookie 
+        await res.clearCookie("token" , {
             httpOnly:true,
             secure:false,
             sameSite:"strict"

@@ -1,7 +1,6 @@
-//one user can create only on assisant assisant things also written in this user model  like business name,desc
-import mongoose from "mongoose";//used to create schema,we use firebase for authentication here not through email and password so passsword not required
+import mongoose from "mongoose";
 
-const pageSchema = new mongoose.Schema(//new schema for page
+const pageSchema = new mongoose.Schema(
     {
     name: String,
 
@@ -27,9 +26,9 @@ const userSchema = new mongoose.Schema({
     },
     assistantName:{
         type:String,
-        default:"Velora"
+        default:"Shifra"
     },
-    businessName:{//ex:saas app,ecommerce app
+    businessName:{
         type:String,
         default:""
     },
@@ -37,11 +36,11 @@ const userSchema = new mongoose.Schema({
         type:String,
         default:""
     },
-    businessDescription:{//ai will response according to description 
+    businessDescription:{
         type:String,
         default:""
     },
-    tone:{//assistant tone or ai tone
+    tone:{
         type:String,
         enum: [
         "friendly",
@@ -64,19 +63,19 @@ const userSchema = new mongoose.Schema({
         type:Boolean,
         default:true
     },
-    pages:{//user website pages jispe hum usko navigate karayenge
-        type:[pageSchema],//[] it is array type
+    pages:{
+        type:[pageSchema],
         default:[]
     },
-    enableNavigation:{//to navigate on any page
+    enableNavigation:{
         type:Boolean,
         default:true
     },
-    geminiApiKey:{//user khud ki api key enter kare jisse hamara response na khatam ho jaldi because agar hum khud ki api key lagayenge toh woh jaldi khatam ho jaayega 
+    geminiApiKey:{
         type:String,
         default:""
     },
-    geminiStatus:{//if user limit exceeded so to tell them that you use any other api key
+    geminiStatus:{
         type:String,
         enum:[
         "active",
@@ -85,11 +84,11 @@ const userSchema = new mongoose.Schema({
       ],
       default:"active"
     },
-    totalMessages:{//for free users
+    totalMessages:{
         type:Number,
         default:0
     },
-    plan:{//charges are include for my website no charge for gemini key it is saas appp so plan is mandotatory
+    plan:{
         type:String,
         enum:["free","pro"],
         default:"free"
@@ -109,9 +108,9 @@ const userSchema = new mongoose.Schema({
         default:false
     }
 
-},{timestamps:true})//timestamp:true gives 2 fields more created at and updated at
+},{timestamps:true})
 
 
-const User = mongoose.model("User" ,userSchema)//creating model 
+const User = mongoose.model("User" ,userSchema)
 
 export default User
