@@ -5,7 +5,7 @@ import { FiLogOut, FiMenu, FiX } from "react-icons/fi";
 import axios from 'axios';
 import { ServerUrl } from '../App';
 import toast from 'react-hot-toast';
-function Navbar({user , setUser}) {
+function Navbar({user , setUser}) {//jaise hi logout karenge waise hi setuser ko null kara denge
   const navigate = useNavigate()
   const [menuOpen,setMenuOpen] = useState(false)
 
@@ -20,18 +20,21 @@ function Navbar({user , setUser}) {
       console.log(error)
     }
   }
+ 
   return (
+     //header ka top left part
     <div className='sticky top-0 z-50 backdrop-blur-xl bg-white/80 border-b border-orange-100'>
       <div className='max-w-7xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between'>
 
-        <div onClick={()=>navigate("/")} className='flex items-center gap-2.5'>
+        <div onClick={()=>navigate("/")} className='flex items-center gap-2.5'>//navigte to home page on clicking this div
           <img src={logo} alt="logo" className='h-9 w-auto object-contain' />
 
-          <h1 className='font-bold text-xl text-gray-700 leading-none'>Shifra{" "}<span className='text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-emerald-500'>AI</span></h1>
+          <h1 className='font-bold text-xl text-gray-700 leading-none'>Velora{" "}<span className='text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-emerald-500'>AI</span></h1>
 
         </div>
-
-
+//right side of header 
+//jab user ka data hoga tab yeh right side wala div dikhega builder builing user 
+//user?.name.charAt(0).toUpperCase() this will show firt charvof user 
         {user && (<div className='hidden md:flex items-center gap-3'>
 
           <button onClick={()=>navigate("/builder")} className='px-4 py-2 rounded-xl bg-gradient-to-r from-purple-500 to-emerald-500 text-white text-sm font-medium shadow-md hover:scale-[1.02] transition-all cursor-pointer'>Builder</button>
@@ -59,7 +62,7 @@ function Navbar({user , setUser}) {
           </div>
           
           </div>)}
-
+//if user is present than make hamerberg do this things FiX cross icon IS A icon  FIMENU is also an hamerberg icon 
 
           {user && (
             <button onClick={()=>setMenuOpen(!menuOpen)} className='md:hidden text-gray-600 hover:text-purple-500 transition-colors'>
