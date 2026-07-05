@@ -44,7 +44,7 @@
             </div>
 
             <h2 class="shifra-title">
-                Hello! I'm Shifra AI
+                Hello! I'm Velora AI
             </h2>
 
             <p class="shifra-sub">
@@ -92,7 +92,7 @@
     
     `;
 
-    document.body.appendChild(popup);
+    document.body.appendChild(popup);//appending in the html of the script we are using
 
     // floating Button
 
