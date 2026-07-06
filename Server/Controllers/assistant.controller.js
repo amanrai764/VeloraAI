@@ -4,9 +4,9 @@ import User from "../Models/user.model.js"
 
 export const getAssistantConfig = async (req, res) => {
     try {
-        const { userId } = req.params
+        const { userId } = req.params//getting userid from frontend and this userid is used to get the user
 
-        const user = await User.findById(userId).select("-geminiApiKey")
+        const user = await User.findById(userId).select("-geminiApiKey")//- means do not reveal
         if (!user) {
             return res.status(404).json({ message: "failed to get user" })
         }

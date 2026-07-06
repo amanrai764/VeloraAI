@@ -40,7 +40,7 @@ app.use("/api/auth",privateCors , authRouter)
 app.use("/api/user",privateCors , userRouter)
 app.use("/api/billing",privateCors , billingRouter)
 
-app.use("/api/assistant",publicCors , assistantRouter)
+app.use("/api/assistant",publicCors , assistantRouter)//publiccor means kisi bhi url se  request ho sakti hai
 const PORT = process.env.PORT
 app.listen(PORT , ()=>{
     console.log(`Server Started on Port ${PORT}`)
