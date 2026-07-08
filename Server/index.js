@@ -15,7 +15,7 @@ const privateCors =
   cors({
 
     origin: [
-      "hhttps://veloraaiclient.onrender.com"
+      "https://veloraaiclient.onrender.com"
     ],
 
     credentials: true
