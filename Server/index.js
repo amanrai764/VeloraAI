@@ -15,7 +15,7 @@ const privateCors =
   cors({
 
     origin: [
-      "http://localhost:5173"
+      "hhttps://veloraaiclient.onrender.com"
     ],
 
     credentials: true
