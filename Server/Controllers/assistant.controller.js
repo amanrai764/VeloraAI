@@ -6,7 +6,7 @@ export const getAssistantConfig = async (req, res) => {
     try {
         const { userId } = req.params//getting userid from frontend and this userid is used to get the user
 
-        const user = await User.findById(userId).select("-geminiApiKey")//- means do not reveal
+        const user = await User.findById(userId).select("-geminiApiKey")//- means do not reveal api key
         if (!user) {
             return res.status(404).json({ message: "failed to get user" })
         }
@@ -53,7 +53,7 @@ export const askAssistant = async (req, res) => {
 
         if (user.enableNavigation) {
 
-            // Navigation Commands
+            // Navigation Commands agar yeh word mil trahe haitoh nevigate karao
             const navigationWords = [
 
                 "open",

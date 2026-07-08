@@ -44,7 +44,7 @@
             </div>
 
             <h2 class="shifra-title">
-                Hello! I'm Velora AI
+                Hello! I'm Shifra AI
             </h2>
 
             <p class="shifra-sub">
@@ -92,7 +92,7 @@
     
     `;
 
-    document.body.appendChild(popup);//appending in the html of the script we are using
+    document.body.appendChild(popup);
 
     // floating Button
 
@@ -197,8 +197,8 @@
 
 
 
-    // text-speech
-
+    // text-speech:const speech = new SpeechSynthesisUtterance(text), converting text to speak, window.speechSynthesis.cancel();this will cancel agar koi pahle se soeech hoga use
+//speak object
     const speak = (text) => {
         window.speechSynthesis.cancel();
 
@@ -220,7 +220,7 @@
 
         speech.volume = 1;
 
-        // Voice end
+        // Voice end jab speech end hoga
         speech.onend = () => {
 
             status.innerText =
@@ -230,13 +230,13 @@
                 "0";
         };
 
-        // Start speaking
+        // Start speaking isse ai assistant bolne lagega
         window.speechSynthesis.speak(
             speech
         );
     }
-
-
+//const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition:- it converts voice to text
+//convert voice to text and all server side stuffs
     const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition
 
 
@@ -327,7 +327,7 @@
             }
         },600)
       };
-
+//if recognition has nay error means voice text mein convert nahi ho paa raha hai than this will happen
       recognition.onerror = ()=>{
         status.innerText =
           "Tap button to Speak";
