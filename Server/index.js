@@ -9,7 +9,7 @@ import userRouter from "./Routes/user.route.js"
 import assistantRouter from "./Routes/assistant.route.js"
 import billingRouter from "./Routes/billing.route.js"
 
-
+//making an obj
 const app = express()
 const privateCors =
   cors({
